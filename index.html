@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/styles/index.css">
+	
+	<title>CScript</title>
+</head>
+
+<body mode="maker">
+	<header>
+		<h1 class="mode-maker">CScript</h1>
+	</header>
+	<main>
+		<div id="blocklyDiv" style="height: 92.3vh; width: 100vw;"></div>
+	</main>
+	<pre style="width: 50vw;"><code class="language-arduino" id="code"></code></pre>
+	
+	<script src="https://unpkg.com/blockly"></script>
+	<script src="/deps/closure-library/closure/goog/base.js"></script>
+	
+	<script src="/src/generators/arduino.js"></script>
+	<script src="/src/generators/arduino/base.js"></script>
+	<script src="/src/generators/arduino/control.js"></script>
+	<script src="/src/generators/arduino/grove.js"></script>
+	<script src="/src/generators/arduino/logic.js"></script>
+	<script src="/src/generators/arduino/math.js"></script>
+	<script src="/src/generators/arduino/procedures.js"></script>
+	<script src="/src/generators/arduino/text.js"></script>
+	<script src="/src/generators/arduino/variables.js"></script>
+	<script type="module" src="/src/res/toolbox.js"></script>
+	
+	<script type="module" src="/src/main.js" defer></script>
+</body>
+</html>

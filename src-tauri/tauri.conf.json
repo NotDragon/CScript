@@ -1,0 +1,139 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist",
+    "withGlobalTauri": true
+  },
+  "package": {
+    "productName": "CScript",
+    "version": "0.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+		"all": false,
+		"shell": {
+			"all": true,
+			"scope": [
+				{
+					"name": "upload",
+					"cmd": "arduino-cli",
+					"args": [
+						"upload",
+						"-p",
+						{
+							"validator": "\\S+"
+						},
+						"--fqbn",
+						{
+							"validator": "\\S+"
+						}
+					]
+				},
+				{
+					"name": "compile",
+					"cmd": "arduino-cli",
+					"args": [
+						"compile",
+						"--fqbn",
+						{
+							"validator": "\\S+"
+						},
+						{
+							"validator": "\\S+"
+						}
+					]
+				}
+			]
+		},
+		"fs": {
+			"all": true,
+			"readFile": true,
+			"writeFile": true,
+			"readDir": true,
+			"copyFile": true,
+			"createDir": true,
+			"removeDir": true,
+			"removeFile": true,
+			"renameFile": true,
+			"exists": true,
+			"scope": [
+				"$APPDATA/**",
+				"$APPLOCALDATA/**"
+			]
+		},
+		"window": {
+			"all": true,
+			"create": true,
+			"center": true,
+			"requestUserAttention": true,
+			"setResizable": true,
+			"setTitle": true,
+			"maximize": true,
+			"unmaximize": true,
+			"minimize": true,
+			"unminimize": true,
+			"show": true,
+			"hide": true,
+			"close": true,
+			"setDecorations": true,
+			"setAlwaysOnTop": true,
+			"setContentProtected": true,
+			"setSize": true,
+			"setMinSize": true,
+			"setMaxSize": true,
+			"setPosition": true,
+			"setFullscreen": true,
+			"setFocus": true,
+			"setIcon": true,
+			"setSkipTaskbar": true,
+			"setCursorGrab": true,
+			"setCursorVisible": true,
+			"setCursorIcon": true,
+			"setCursorPosition": true,
+			"setIgnoreCursorEvents": true,
+			"startDragging": true,
+			"print": true
+		},
+		"path": {
+			"all": true
+		},
+		"dialog": {
+			"all": true
+		}
+	},
+    "bundle": {
+      "active": true,
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "cscript",
+      "targets": "all"
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      	{
+		  	"fullscreen": false,
+		  	"resizable": true,
+		  	"maximized": true,
+        	"title": "CScript",
+        	"width": 800,
+        	"height": 600
+      	}
+	],
+	  "systemTray": {
+		  "iconPath": "icons/icon.png",
+		  "iconAsTemplate": true
+	  }
+  }
+}
